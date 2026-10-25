@@ -1,0 +1,76 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  body {
+    @apply bg-cream text-ink-900 font-sans antialiased;
+    background-image:
+      radial-gradient(circle at 12% -8%, rgba(16, 160, 143, 0.08), transparent 38%),
+      radial-gradient(circle at 88% 0%, rgba(31, 42, 77, 0.10), transparent 42%);
+    background-attachment: fixed;
+    min-height: 100vh;
+  }
+  *:focus-visible {
+    @apply outline-none ring-2 ring-teal-500 ring-offset-2 ring-offset-cream rounded-md;
+  }
+  ::selection {
+    @apply bg-teal-200 text-ink-900;
+  }
+}
+
+@layer components {
+  .card {
+    @apply rounded-2xl bg-white shadow-card border border-ink-100/70;
+  }
+  .card-soft {
+    @apply rounded-2xl bg-white/80 backdrop-blur-sm shadow-card border border-ink-100/60;
+  }
+  .btn {
+    @apply inline-flex items-center justify-center gap-2 rounded-xl px-4 py-2.5 text-sm font-semibold transition-all duration-200 select-none disabled:opacity-50 disabled:cursor-not-allowed;
+  }
+  .btn-primary {
+    @apply btn bg-ink-900 text-white hover:bg-ink-800 hover:shadow-lift active:scale-[0.98];
+  }
+  .btn-accent {
+    @apply btn bg-teal-500 text-white hover:bg-teal-600 hover:shadow-lift active:scale-[0.98];
+  }
+  .btn-ghost {
+    @apply btn text-ink-700 hover:bg-ink-100/70 active:scale-[0.98];
+  }
+  .btn-outline {
+    @apply btn border border-ink-200 text-ink-800 hover:border-ink-300 hover:bg-ink-50/60 active:scale-[0.98];
+  }
+  .chip {
+    @apply inline-flex items-center gap-1.5 rounded-full px-3 py-1 text-xs font-semibold tracking-wide uppercase;
+  }
+  .input {
+    @apply w-full rounded-xl border border-ink-200 bg-white px-3.5 py-2.5 text-sm text-ink-900 placeholder:text-ink-400 transition-colors focus:border-teal-500 focus:ring-2 focus:ring-teal-500/30;
+  }
+  .label {
+    @apply block text-xs font-semibold uppercase tracking-wide text-ink-500 mb-1.5;
+  }
+}
+
+/* custom scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(88, 101, 152, 0.25);
+  border-radius: 999px;
+  border: 2px solid transparent;
+  background-clip: padding-box;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(88, 101, 152, 0.45);
+  background-clip: padding-box;
+}
